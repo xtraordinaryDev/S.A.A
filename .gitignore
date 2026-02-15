@@ -1,0 +1,6 @@
+# Leftover folder after moving site to root (safe to delete locally)
+site/
+
+# OS
+.DS_Store
+Thumbs.db
