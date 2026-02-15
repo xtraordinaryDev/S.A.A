@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" href="../assets/img/Sovereign Athlete Advisory logo design.png">
+  <title>Apply / Contact | Sovereign Athlete Advisory</title>
+  <meta name="description" content="Apply for NIL representation or contact Sovereign Athlete Advisory.">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <header class="nav"><div class="container nav-inner"><a class="brand" href="../index.html"><img src="../assets/img/Sovereign Athlete Advisory logo design.png" alt="Sovereign Athlete Advisory logo"><div class="name">Sovereign Athlete Advisory</div></a><nav class="nav-links" id="nav-menu" aria-label="Main"><a href="../index.html#services">Services</a><a href="./about.html">About Us</a><a class="btn primary" href="./contact.html">Apply</a></nav><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span class="nav-toggle-icon nav-toggle-bars"><i class="fa-solid fa-bars"></i></span><span class="nav-toggle-icon nav-toggle-close"><i class="fa-solid fa-xmark"></i></span></button></div></header>
+
+  <section class="section page-hero">
+    <div class="container flow">
+      <p class="label">Apply / Contact</p>
+      <h1>Start your NIL application.</h1>
+      <p class="muted">If the athlete is under 18, a parent/guardian should submit this form.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <form id="applyForm" class="card stack" novalidate>
+        <h2>Apply / Contact</h2>
+        <p class="muted">Consent is required for minors before intake and representation discussions.</p>
+
+        <label>
+          <div class="label">Full name</div>
+          <input required name="name" class="field">
+        </label>
+
+        <label>
+          <div class="label">Email</div>
+          <input required type="email" name="email" class="field">
+        </label>
+
+        <fieldset style="border:0;padding:0;margin:0">
+          <div class="label">Athlete age band</div>
+          <label><input type="radio" name="ageBand" value="under18" required> Under 18</label>
+          <label style="margin-left:14px"><input type="radio" name="ageBand" value="adult"> 18+</label>
+        </fieldset>
+
+        <label>
+          <div class="label">Message</div>
+          <textarea required name="message" rows="6" class="field"></textarea>
+        </label>
+
+        <button class="btn primary full" type="submit">Send</button>
+        <div id="formMsg" class="muted" style="font-size:14px"></div>
+
+        <p class="muted small-note">
+          NIL rules vary by state, school, conference, and governing body. We do not support pay-for-play or recruiting inducements.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <div class="modal" id="consentModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Consent Required">
+      <h3>Consent required</h3>
+      <p class="muted" style="margin-top:10px">
+        If the athlete is under 18, a parent/guardian must consent before we collect information and discuss representation.
+      </p>
+      <ul class="muted" style="margin-top:12px">
+        <li>We collect only what we need to respond.</li>
+        <li>Do not submit sensitive documents (IDs, transcripts) through this form.</li>
+        <li>You can request deletion at any time.</li>
+      </ul>
+      <div class="modal-actions">
+        <button class="btn ghost" type="button" data-decline>I do not consent</button>
+        <button class="btn primary" type="button" data-accept>I am the parent/guardian and I consent</button>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background:var(--surface-2)"><div class="container" style="padding:30px var(--pad-x)"><div class="divider"></div><div class="muted small-note">© <span id="year"></span> Sovereign Athlete Advisory</div></div></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+:root{
+  --bg:#0A0D0A;
+  --surface-1:#111513;
+  --surface-2:#1E1F1D;
+  --text:#F5F2E8;
+  --muted:#B9B4A7;
+
+  --gold-200:#E8D49E;
+  --gold-500:#CCB27E;
+  --gold-600:#A78F62;
+  --gold-700:#7C673F;
+
+  --danger:#FF5C5C;
+  --success:#5CFFB2;
+  --ring:rgba(232,212,158,.4);
+
+  --container:1200px;
+  --pad-x:20px;
+  --r-md:12px;
+  --r-lg:18px;
+
+  --shadow-gold:0 0 0 1px rgba(232,212,158,0.28), 0 18px 50px rgba(0,0,0,0.6);
+}
