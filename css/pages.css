@@ -312,9 +312,30 @@
   border:1px solid rgba(124,103,63,.3);
   background:var(--surface-1);
 }
+#client-list .client-list-arrow{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  margin:0 auto 10px;
+  width:max-content;
+  color:var(--gold-200);
+  font-size:13px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+#client-list .client-list-arrow-icon{
+  font-size:20px;
+  line-height:1;
+  animation:hero-scroll-bounce 2s ease-in-out infinite;
+}
+#client-list .client-gallery{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
 #client-list .client-list-img{
   width:100%;
-  height:380px;
+  height:260px;
   object-fit:cover;
   object-position:center top;
   display:block;
@@ -323,6 +344,46 @@
 @media (hover:hover){
   #client-list .client-gallery-item:hover .client-list-img{
     transform:scale(1.08);
+  }
+}
+#client-roster .client-roster-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+#client-roster .client-roster-item{
+  background:linear-gradient(180deg,rgba(232,212,158,.08),rgba(232,212,158,.02));
+  border:1px solid rgba(124,103,63,.35);
+  border-radius:14px;
+  padding:14px 16px;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+#client-roster .client-roster-item:hover{
+  transform:translateY(-3px);
+  border-color:rgba(232,212,158,.7);
+  box-shadow:0 10px 24px rgba(0,0,0,.32);
+}
+#client-roster .client-roster-item h3{
+  margin:0;
+  font-size:1rem;
+  line-height:1.2;
+}
+#client-roster .client-roster-item p{
+  margin:6px 0 0;
+  font-size:.86rem;
+  color:var(--gold-200);
+  letter-spacing:.02em;
+}
+#client-roster .client-roster-item p span{
+  color:var(--text);
+  opacity:.85;
+}
+@media (max-width:900px){
+  #client-list .client-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  #client-roster .client-roster-grid{
+    grid-template-columns:1fr;
   }
 }
 #clients .client-card-img-nfl{

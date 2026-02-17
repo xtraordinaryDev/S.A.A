@@ -32,16 +32,27 @@
     </div>
   </header>
 
-  <section class="section page-hero">
-    <div class="container flow">
+  <section class="parallax-section" aria-label="Client list hero">
+    <div class="parallax-bg" data-parallax style="background-image:url('../assets/img/footballHelmet.jpg')"></div>
+    <div class="parallax-overlay"></div>
+    <div class="container parallax-content flow">
       <p class="label">Client List</p>
       <h1>Featured athletes and clients.</h1>
       <p class="muted">Current featured roster and representative photos.</p>
+      <div class="cta-row" style="margin-top:14px">
+        <a class="btn" href="#nfl-clients">NFL</a>
+        <a class="btn" href="#high-school-clients">High School</a>
+        <a class="btn" href="#college-clients">College</a>
+      </div>
     </div>
   </section>
 
   <section class="section" id="client-list">
     <div class="container">
+      <a class="client-list-arrow" href="#nfl-clients" aria-label="See full client list">
+        <span>See full client list</span>
+        <span class="client-list-arrow-icon" aria-hidden="true">↓</span>
+      </a>
       <div class="grid cols-3 client-gallery" style="margin-top:8px">
         <div class="client-gallery-item"><img class="client-list-img" src="../assets/img/1.jpg" alt="Mike P Ravens"></div>
         <div class="client-gallery-item"><img class="client-list-img" src="../assets/img/2.jpg" alt="Colorado"></div>
@@ -53,6 +64,63 @@
         <div class="client-gallery-item"><img class="client-list-img" src="../assets/img/calebUnger.jpeg" alt="Caleb Unger new"></div>
         <div class="client-gallery-item"><img class="client-list-img" src="../assets/img/terrell.jpeg" alt="Terrell"></div>
         <div class="client-gallery-item"><img class="client-list-img" src="../assets/img/kaden.jpg" alt="Kaden"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="client-roster" style="background:var(--surface-2)">
+    <div class="container">
+      <p class="label">Client List</p>
+      <h2 id="nfl-clients" style="margin-top:10px">NFL Clients</h2>
+      <p class="muted intro-copy">Trusted representation across the league.</p>
+      <div class="client-roster-grid" style="margin-top:20px">
+        <article class="client-roster-item"><h3>Jamie Sheriff</h3><p>Seattle Seahawks <span>(NFL Champ)</span></p></article>
+        <article class="client-roster-item"><h3>Michael Pierce</h3><p>Baltimore Ravens</p></article>
+        <article class="client-roster-item"><h3>Lachavious Simmons</h3><p>Chicago Bears</p></article>
+        <article class="client-roster-item"><h3>Kory Chapman</h3><p>New England Patriots / Indy Colts <span>(2x NFL Champ)</span></p></article>
+        <article class="client-roster-item"><h3>AJ Moore</h3><p>Houston Texans</p></article>
+        <article class="client-roster-item"><h3>CJ Moore</h3><p>Detroit Lions</p></article>
+        <article class="client-roster-item"><h3>Matt Wells</h3><p>New England Patriots</p></article>
+        <article class="client-roster-item"><h3>Anthony Morris</h3><p>Oakland Raiders</p></article>
+        <article class="client-roster-item"><h3>Troymaine Pope</h3><p>LA Chargers</p></article>
+        <article class="client-roster-item"><h3>Terrell Bonds</h3><p>Baltimore Ravens</p></article>
+        <article class="client-roster-item"><h3>Joshua Cooper</h3><p>New Orleans Saints</p></article>
+        <article class="client-roster-item"><h3>Tim Duckworth</h3><p>New Orleans Saints</p></article>
+        <article class="client-roster-item"><h3>McKinley Boykin</h3><p>New Orleans Saints</p></article>
+        <article class="client-roster-item"><h3>Terry Wright</h3><p>Seattle Seahawks</p></article>
+        <article class="client-roster-item"><h3>Tramaine Brock</h3><p>San Fransico Forty niners</p></article>
+        <article class="client-roster-item"><h3>Mike Butterworth</h3><p>Atlanta Falcons</p></article>
+        <article class="client-roster-item"><h3>Jamie Mitchell</h3><p>Cleveland Browns</p></article>
+        <article class="client-roster-item"><h3>Josh Bright</h3><p>Baltimore Ravens</p></article>
+        <article class="client-roster-item"><h3>Michael Bozeman</h3><p>Atlanta Falcons</p></article>
+        <article class="client-roster-item"><h3>Justin Jenkins</h3><p>Philadelphia Eagles</p></article>
+        <article class="client-roster-item"><h3>Dezmond Sherrod</h3><p>Pittsburg Steelers <span>(NFL Champ)</span></p></article>
+        <article class="client-roster-item"><h3>Bruce Hall</h3><p>Buffalo Bills</p></article>
+        <article class="client-roster-item"><h3>Quandre Mosley</h3><p>Dallas Cowboys</p></article>
+        <article class="client-roster-item"><h3>Jeremy Faulk</h3><p>Cleveland Browns</p></article>
+      </div>
+
+      <h2 id="high-school-clients" style="margin-top:34px">High School Clients</h2>
+      <div class="client-roster-grid" style="margin-top:16px">
+        <article class="client-roster-item"><h3>Brayden Tyson</h3><p>RB</p></article>
+        <article class="client-roster-item"><h3>Caleph Unger</h3><p>OL</p></article>
+        <article class="client-roster-item"><h3>Mitchell Turner</h3><p>DL</p></article>
+      </div>
+
+      <h2 id="college-clients" style="margin-top:34px">College Clients</h2>
+      <div class="client-roster-grid" style="margin-top:16px">
+        <article class="client-roster-item"><h3>Zy Crisler</h3><p>Colorado / Illinois</p></article>
+        <article class="client-roster-item"><h3>Reginald Vaughn</h3><p>Arkansas</p></article>
+        <article class="client-roster-item"><h3>Cortez Thomas</h3><p>Ole Miss</p></article>
+        <article class="client-roster-item"><h3>Tre Ellis</h3><p>Ole Miss</p></article>
+        <article class="client-roster-item"><h3>Tre Johnson</h3><p>MS State</p></article>
+        <article class="client-roster-item"><h3>David Coffey</h3><p>Iowa State</p></article>
+        <article class="client-roster-item"><h3>Ray Coffey</h3><p>Iowa State</p></article>
+        <article class="client-roster-item"><h3>Kalep Patterson</h3><p>Kansas State</p></article>
+        <article class="client-roster-item"><h3>Jaekwon Bouldin</h3><p>MS State / JSU</p></article>
+        <article class="client-roster-item"><h3>Cleveland Tolbert</h3><p>JSU</p></article>
+        <article class="client-roster-item"><h3>Kaden Catchings</h3><p>Michigan</p></article>
+        <article class="client-roster-item"><h3>Cameron Hewitt</h3><p>Gulf Coast</p></article>
       </div>
     </div>
   </section>

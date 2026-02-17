@@ -35,14 +35,17 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   const counters = Array.from(document.querySelectorAll('.pros-count[data-count-target]'));
   if(!counters.length) return;
 
-  const startValue = 100;
   const durationMs = 1400;
   let hasAnimated = false;
 
   function animateCounter(counter){
     const target = Number(counter.getAttribute('data-count-target'));
-    if(!Number.isFinite(target) || target <= startValue){
-      counter.textContent = `${startValue}+`;
+    const startValue = Number(counter.getAttribute('data-count-start') || '0');
+    if(!Number.isFinite(target)){
+      return;
+    }
+    if(target <= startValue){
+      counter.textContent = `${target}`;
       return;
     }
 
@@ -50,7 +53,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     function step(now){
       const progress = Math.min((now - start) / durationMs, 1);
       const value = Math.floor(startValue + (target - startValue) * progress);
-      counter.textContent = `${value}+`;
+      counter.textContent = `${value}`;
       if(progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -65,7 +68,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   if(prefersReducedMotion){
     counters.forEach(function(counter){
       const target = Number(counter.getAttribute('data-count-target'));
-      counter.textContent = `${Number.isFinite(target) ? target : startValue}+`;
+      counter.textContent = `${Number.isFinite(target) ? target : 0}`;
     });
     return;
   }
