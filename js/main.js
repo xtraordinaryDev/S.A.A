@@ -31,6 +31,62 @@ document.getElementById('year')?.append(String(new Date().getFullYear()));
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+(function(){
+  const counters = Array.from(document.querySelectorAll('.pros-count[data-count-target]'));
+  if(!counters.length) return;
+
+  const startValue = 100;
+  const durationMs = 1400;
+  let hasAnimated = false;
+
+  function animateCounter(counter){
+    const target = Number(counter.getAttribute('data-count-target'));
+    if(!Number.isFinite(target) || target <= startValue){
+      counter.textContent = `${startValue}+`;
+      return;
+    }
+
+    const start = performance.now();
+    function step(now){
+      const progress = Math.min((now - start) / durationMs, 1);
+      const value = Math.floor(startValue + (target - startValue) * progress);
+      counter.textContent = `${value}+`;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function runCounters(){
+    if(hasAnimated) return;
+    hasAnimated = true;
+    counters.forEach(animateCounter);
+  }
+
+  if(prefersReducedMotion){
+    counters.forEach(function(counter){
+      const target = Number(counter.getAttribute('data-count-target'));
+      counter.textContent = `${Number.isFinite(target) ? target : startValue}+`;
+    });
+    return;
+  }
+
+  const badges = document.querySelector('.pros-badges');
+  if(!badges){
+    runCounters();
+    return;
+  }
+
+  const observer = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      runCounters();
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(badges);
+})();
+
 if(!prefersReducedMotion){
   const revealTargets = document.querySelectorAll('section .container > *:not(script), .card');
   revealTargets.forEach((node, index)=>{
