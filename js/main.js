@@ -1,14 +1,29 @@
 document.getElementById('year')?.append(String(new Date().getFullYear()));
 
 (function(){
+  document.querySelectorAll('[data-faq-category]').forEach(function(category){
+    var header = category.querySelector('.faq-category-header');
+    var body = category.querySelector('.faq-category-body');
+    var chevron = category.querySelector('.faq-chevron');
+    if(!header || !body) return;
+    header.addEventListener('click', function(){
+      var open = body.hidden;
+      body.hidden = !open;
+      header.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if(chevron) chevron.style.transform = open ? 'rotate(180deg)' : '';
+    });
+  });
+})();
+
+(function(){
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
   const menu = document.getElementById('nav-menu');
   if(!toggle || !nav || !menu) return;
   function open(){ nav.classList.add('open'); toggle.setAttribute('aria-expanded','true'); toggle.setAttribute('aria-label','Close menu'); }
   function close(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); toggle.setAttribute('aria-label','Open menu'); }
-  function toggleMenu(){ nav.classList.contains('open') ? close() : open(); }
-  toggle.addEventListener('click', toggleMenu);
+  function toggleMenu(e){ e.preventDefault(); e.stopPropagation(); nav.classList.contains('open') ? close() : open(); }
+  toggle.addEventListener('click', toggleMenu, true);
   menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
   document.addEventListener('click', function(e){ if(nav.classList.contains('open') && !nav.contains(e.target)) close(); });
   window.addEventListener('resize', function(){ if(window.innerWidth > 900) close(); });

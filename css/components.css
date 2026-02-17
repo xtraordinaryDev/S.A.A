@@ -45,14 +45,30 @@
   padding:0;
   border:none;
   background:transparent;
-  color:var(--text);
+  color:var(--gold-100);
   cursor:pointer;
   border-radius:8px;
-  transition:background .2s ease, color .2s ease;
+  border:1px solid rgba(124,103,63,.45);
+  background:rgba(10,13,10,.55);
+  box-shadow:0 0 0 1px rgba(0,0,0,.35) inset;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
 }
 .nav-toggle:hover{background:rgba(124,103,63,.2); color:var(--gold-200)}
 .nav-toggle:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
 .nav-toggle-icon{font-size:1.25rem; line-height:1}
+.nav-toggle-icon i{color:inherit}
+.nav-toggle-bars::before{
+  content:"\2630";
+  color:inherit;
+  font-size:1.15rem;
+  line-height:1;
+}
+.nav-toggle-close::before{
+  content:"\00D7";
+  color:inherit;
+  font-size:1.35rem;
+  line-height:1;
+}
 .nav-toggle-close{display:none}
 .nav.open .nav-toggle-close{display:block}
 .nav.open .nav-toggle-bars{display:none}
@@ -62,23 +78,35 @@
     background:rgba(10,13,10,.95);
     -webkit-backdrop-filter:blur(12px);
     backdrop-filter:blur(12px);
+    overflow:visible;
   }
-  .nav-toggle{display:flex}
+  .nav-toggle{
+    display:flex;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+    color:var(--gold-100);
+    background:rgba(10,13,10,.72);
+    border-color:rgba(204,178,126,.55);
+  }
+  .nav-inner{position:relative; overflow:visible}
   .nav-links{
     display:none;
     position:absolute;
     top:100%;
     left:0;
     right:0;
+    min-width:100%;
+    margin-top:0;
     flex-direction:column;
     gap:0;
-    padding:12px var(--pad-x) 20px;
+    padding:16px var(--pad-x) 20px;
     background:rgba(10,13,10,.98);
     -webkit-backdrop-filter:blur(12px);
     backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(124,103,63,.25);
     box-shadow:0 12px 28px rgba(0,0,0,.4);
     z-index:201;
+    box-sizing:border-box;
   }
   .nav.open .nav-links{
     display:flex;
@@ -87,10 +115,11 @@
     padding:14px 0;
     border-bottom:1px solid rgba(124,103,63,.12);
     font-size:15px;
+    color:var(--text);
   }
+  .nav-links a:hover{color:var(--gold-200)}
   .nav-links a:last-of-type{border-bottom:none}
   .nav-links .btn{padding:14px 18px; justify-content:center; margin-top:8px}
-  .nav-inner{position:relative}
 }
 
 /* Buttons */

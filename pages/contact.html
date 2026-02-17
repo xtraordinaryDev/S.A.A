@@ -6,13 +6,14 @@
   <link rel="icon" type="image/png" href="../assets/img/Sovereign Athlete Advisory logo design.png">
   <title>Apply / Contact | Sovereign Athlete Advisory</title>
   <meta name="description" content="Apply for NIL representation or contact Sovereign Athlete Advisory.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8yYb2R5r9Qw4u5S1m2D9gYh3fVfY8Hg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/pages.css">
 </head>
 <body>
-  <header class="nav"><div class="container nav-inner"><a class="brand" href="../index.html"><img src="../assets/img/Sovereign Athlete Advisory logo design.png" alt="Sovereign Athlete Advisory logo"><div class="name">Sovereign Athlete Advisory</div></a><nav class="nav-links" id="nav-menu" aria-label="Main"><a href="../index.html#services">Services</a><a href="./about.html">About Us</a><a class="btn primary" href="./contact.html">Apply</a></nav><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span class="nav-toggle-icon nav-toggle-bars"><i class="fa-solid fa-bars"></i></span><span class="nav-toggle-icon nav-toggle-close"><i class="fa-solid fa-xmark"></i></span></button></div></header>
+  <header class="nav"><div class="container nav-inner"><a class="brand" href="../index.html"><img src="../assets/img/Sovereign Athlete Advisory logo design.png" alt="Sovereign Athlete Advisory logo"><div class="name">Sovereign Athlete Advisory</div></a><nav class="nav-links" id="nav-menu" aria-label="Main"><a href="../index.html#services">Services</a><a href="./clients.html">Client List</a><a href="./about.html">Advisors</a><a class="btn primary" href="./contact.html">Contact Us</a></nav><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span class="nav-toggle-icon nav-toggle-bars"><i class="fa-solid fa-bars"></i></span><span class="nav-toggle-icon nav-toggle-close"><i class="fa-solid fa-xmark"></i></span></button></div></header>
 
   <section class="section page-hero">
     <div class="container flow">
@@ -42,6 +43,12 @@
           <div class="label">Athlete age band</div>
           <label><input type="radio" name="ageBand" value="under18" required> Under 18</label>
           <label style="margin-left:14px"><input type="radio" name="ageBand" value="adult"> 18+</label>
+        </fieldset>
+
+        <fieldset style="border:0;padding:0;margin:0;margin-top:14px">
+          <div class="label">Collegiate or High school athlete</div>
+          <label><input type="radio" name="athleteType" value="collegiate"> Collegiate athlete</label>
+          <label style="margin-left:14px"><input type="radio" name="athleteType" value="highschool"> High school athlete</label>
         </fieldset>
 
         <label>
@@ -78,7 +85,41 @@
     </div>
   </div>
 
-  <footer style="background:var(--surface-2)"><div class="container" style="padding:30px var(--pad-x)"><div class="divider"></div><div class="muted small-note">© <span id="year"></span> Sovereign Athlete Advisory</div></div></footer>
+  <footer style="background:var(--surface-2)">
+    <div class="container" style="padding:46px var(--pad-x)">
+      <div class="divider"></div>
+      <div style="display:flex;gap:32px;flex-wrap:wrap;justify-content:space-between;margin-top:22px;align-items:flex-start">
+        <div>
+          <a href="../index.html" class="footer-brand" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:8px">
+            <img src="../assets/img/Sovereign Athlete Advisory logo design.png" alt="Sovereign Athlete Advisory logo" width="48" height="48" style="border-radius:50%">
+            <span style="font-family:Cinzel,serif">Sovereign Athlete Advisory</span>
+          </a>
+          <div class="muted" style="font-size:14px">NIL representation and brand-building.</div>
+          <div class="footer-contact" style="font-size:14px;margin-top:10px;display:flex;flex-direction:column;gap:6px">
+            <a href="mailto:svrn.athlete@gmail.com" class="muted" style="font-size:14px;display:inline-flex;align-items:center;gap:8px"><i class="fa-solid fa-envelope" aria-hidden="true"></i> svrn.athlete@gmail.com</a>
+            <a href="tel:+16019064472" class="muted" style="font-size:14px;display:inline-flex;align-items:center;gap:8px"><i class="fa-solid fa-phone" aria-hidden="true"></i> +1 (601) 906-4472</a>
+            <a href="tel:+12514232449" class="muted" style="font-size:14px;display:inline-flex;align-items:center;gap:8px"><i class="fa-solid fa-phone" aria-hidden="true"></i> +1 (251) 423-2449</a>
+          </div>
+        </div>
+        <div style="display:grid;gap:8px;font-size:14px">
+          <div class="label" style="margin-bottom:4px;font-size:11px">Pages</div>
+          <a class="muted" href="../index.html">Home</a>
+          <a class="muted" href="../index.html#services">Services</a>
+          <a class="muted" href="./clients.html">Client List</a>
+          <a class="muted" href="../index.html#faq">FAQ</a>
+          <a class="muted" href="./about.html">Advisors</a>
+          <a class="muted" href="./contact.html">Contact Us</a>
+        </div>
+        <div style="display:grid;gap:8px;font-size:14px">
+          <div class="label" style="margin-bottom:4px;font-size:11px">Legal</div>
+          <a class="muted" href="./legal/nil-disclosures.html">NIL Disclosures</a>
+          <a class="muted" href="./legal/privacy.html">Privacy</a>
+          <a class="muted" href="./legal/terms.html">Terms</a>
+        </div>
+      </div>
+      <div class="muted" style="margin-top:22px;font-size:12px">© <span id="year"></span> Sovereign Athlete Advisory</div>
+    </div>
+  </footer>
   <script src="../js/main.js"></script>
   <script src="../js/form.js"></script>
 </body>
