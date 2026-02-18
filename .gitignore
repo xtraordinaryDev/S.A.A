@@ -4,3 +4,5 @@ site/
 # OS
 .DS_Store
 Thumbs.db
+
+assets.zip

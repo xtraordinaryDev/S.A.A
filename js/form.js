@@ -45,9 +45,38 @@ form?.addEventListener('submit',async (e)=>{
     return;
   }
 
-  msg.textContent = 'Sending...';
-  await new Promise((resolve)=>setTimeout(resolve,600));
-  msg.textContent = "Received. We'll reply within 1 business day.";
+  const formData = new FormData(form);
+  const name = String(formData.get('name') || '').trim();
+  const email = String(formData.get('email') || '').trim();
+  const athleteTypeValue = String(formData.get('athleteType') || '').trim();
+  const message = String(formData.get('message') || '').trim();
+
+  const ageLabel = ageBand === 'under18' ? 'Under 18' : '18+';
+  const athleteTypeMap = {
+    highschool: 'High school athlete',
+    collegiate: 'Collegiate athlete',
+    nfl: 'NFL athlete'
+  };
+  const athleteTypeLabel = athleteTypeMap[athleteTypeValue] || athleteTypeValue || 'Not provided';
+
+  const subject = 'New Apply/Contact Submission - Sovereign Athlete Advisory';
+  const body = [
+    'New submission details:',
+    '',
+    `Full name: ${name}`,
+    `Email: ${email}`,
+    `Athlete age band: ${ageLabel}`,
+    `Athlete level: ${athleteTypeLabel}`,
+    '',
+    'Message:',
+    message
+  ].join('\n');
+
+  const mailtoUrl = `mailto:info@sovereignathletes.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  msg.textContent = 'Opening your email app...';
+  window.location.href = mailtoUrl;
+  msg.textContent = 'Success: If your email app opened and you clicked Send, your submission was sent to info@sovereignathletes.com.';
   form.reset();
   guardianConsented = false;
 });

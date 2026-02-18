@@ -1,6 +1,38 @@
 document.getElementById('year')?.append(String(new Date().getFullYear()));
 
 (function(){
+  const heroVideo = document.querySelector('.hero-bg-video');
+  if(!heroVideo) return;
+
+  // iOS/Safari autoplay is strict: keep video muted + inline and retry play.
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+  heroVideo.setAttribute('muted', '');
+  heroVideo.setAttribute('playsinline', '');
+  heroVideo.setAttribute('webkit-playsinline', '');
+
+  const tryPlay = ()=>{
+    const playPromise = heroVideo.play();
+    if(playPromise && typeof playPromise.catch === 'function'){
+      playPromise.catch(()=>{});
+    }
+  };
+
+  if(heroVideo.readyState >= 2){
+    tryPlay();
+  }else{
+    heroVideo.addEventListener('loadeddata', tryPlay, { once:true });
+  }
+
+  window.addEventListener('pageshow', tryPlay);
+  document.addEventListener('visibilitychange', ()=>{
+    if(!document.hidden) tryPlay();
+  });
+  document.addEventListener('touchstart', tryPlay, { once:true, passive:true });
+})();
+
+(function(){
   document.querySelectorAll('[data-faq-category]').forEach(function(category){
     var header = category.querySelector('.faq-category-header');
     var body = category.querySelector('.faq-category-body');
@@ -41,11 +73,14 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   function animateCounter(counter){
     const target = Number(counter.getAttribute('data-count-target'));
     const startValue = Number(counter.getAttribute('data-count-start') || '0');
+    const formatValue = function(value){
+      return Number(value).toLocaleString('en-US');
+    };
     if(!Number.isFinite(target)){
       return;
     }
     if(target <= startValue){
-      counter.textContent = `${target}`;
+      counter.textContent = formatValue(target);
       return;
     }
 
@@ -53,7 +88,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     function step(now){
       const progress = Math.min((now - start) / durationMs, 1);
       const value = Math.floor(startValue + (target - startValue) * progress);
-      counter.textContent = `${value}`;
+      counter.textContent = formatValue(value);
       if(progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -68,7 +103,8 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   if(prefersReducedMotion){
     counters.forEach(function(counter){
       const target = Number(counter.getAttribute('data-count-target'));
-      counter.textContent = `${Number.isFinite(target) ? target : 0}`;
+      const value = Number.isFinite(target) ? target : 0;
+      counter.textContent = Number(value).toLocaleString('en-US');
     });
     return;
   }
